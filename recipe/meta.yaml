@@ -11,23 +11,25 @@ source:
     sha256: 57cbf8e12aafa137940c3a693b873c53037fa80cd5d2a8b1a6709d102e718452
 
 build:
-    number: 0
-    skip: True  # [win or not py3k]
+    number: 1
+    skip: True  # [win]
 
 requirements:
     build:
         - python
         - setuptools
-        - numpy x.x
+        - numpy 1.11.*
         - cython
         - gsl
         - gcc
+        - openblas 0.2.20|0.2.20.*
     run:
         - python
-        - numpy x.x
+        - numpy >=1.11
         - scipy
         - gsl
         - libgcc
+        - openblas 0.2.20|0.2.20.*
 
 test:
     imports:
