@@ -14,14 +14,16 @@ Summary: A port of Jesse Windles PolyaGamma sampling code using Cython.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/pypolyagamma-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/pypolyagamma-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/pypolyagamma-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/pypolyagamma-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/pypolyagamma-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/pypolyagamma-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/pypolyagamma-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/pypolyagamma-feedstock)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pypolyagamma/badges/version.svg)](https://anaconda.org/conda-forge/pypolyagamma)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pypolyagamma/badges/downloads.svg)](https://anaconda.org/conda-forge/pypolyagamma)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pypolyagamma-green.svg)](https://anaconda.org/conda-forge/pypolyagamma) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pypolyagamma.svg)](https://anaconda.org/conda-forge/pypolyagamma) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pypolyagamma.svg)](https://anaconda.org/conda-forge/pypolyagamma) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pypolyagamma.svg)](https://anaconda.org/conda-forge/pypolyagamma) |
 
 Installing pypolyagamma
 =======================
