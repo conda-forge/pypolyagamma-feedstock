@@ -22,14 +22,14 @@ requirements:
         - cython
         - gsl
         - gcc
-        - openblas 0.2.20|0.2.20.*
+        - openblas
     run:
         - python
-        - numpy >=1.11
+        - {{ pin_compatible('numpy') }}
         - scipy
         - gsl
         - libgcc
-        - openblas 0.2.20|0.2.20.*
+        - openblas
 
 test:
     imports:
