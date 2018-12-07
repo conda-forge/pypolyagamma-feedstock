@@ -2,45 +2,48 @@
 {% set version = "0.2.1" %}
 
 package:
-    name: {{ name }}
-    version: {{ version }}
+  name: {{ name }}
+  version: {{ version }}
 
 source:
-    fn: {{ name }}-{{ version }}.tar.gz
-    url: https://github.com/slinderman/pypolyagamma/archive/{{ version }}.tar.gz
-    sha256: 57cbf8e12aafa137940c3a693b873c53037fa80cd5d2a8b1a6709d102e718452
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://github.com/slinderman/pypolyagamma/archive/{{ version }}.tar.gz
+  sha256: 57cbf8e12aafa137940c3a693b873c53037fa80cd5d2a8b1a6709d102e718452
 
 build:
-    number: 1
-    skip: True  # [win]
+  number: 1
+  skip: True  # [win]
 
 requirements:
-    build:
-        - python
-        - setuptools
-        - numpy 1.11.*
-        - cython
-        - gsl
-        - gcc
-        - openblas 0.2.20|0.2.20.*
-    run:
-        - python
-        - numpy >=1.11
-        - scipy
-        - gsl
-        - libgcc
-        - openblas 0.2.20|0.2.20.*
+  build:
+    - {{ compiler('c') }}
+  host:
+      - python
+      - setuptools
+      - numpy
+      - cython
+      - gsl
+      - openblas
+      - llvm-openmp >=4.0.1  # [osx]
+  run:
+      - python
+      - {{ pin_compatible('numpy') }}
+      - scipy
+      - gsl
+      - openblas
+      - llvm-openmp >=4.0.1  # [osx]
 
 test:
-    imports:
-        - pypolyagamma
+  imports:
+    - pypolyagamma
 
 about:
-    home: https://github.com/slinderman/pypolyagamma
-    license: MIT
-    summary: A port of Jesse Windles PolyaGamma sampling code using Cython.
+  home: https://github.com/slinderman/pypolyagamma
+  license: MIT
+  summary: A port of Jesse Windles PolyaGamma sampling code using Cython.
 
 extra:
-    recipe-maintainers:
-        - slinderman
-        - mmb90
+  recipe-maintainers:
+    - slinderman
+    - mmb90
+    - beckermr
