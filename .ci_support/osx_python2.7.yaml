@@ -9,14 +9,18 @@ channel_targets:
 docker_image:
 - condaforge/linux-anvil
 gsl:
-- '2.2'
+- '2.4'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 macos_min_version:
 - '10.9'
+openblas:
+- 0.3.3
 pin_run_as_build:
   gsl:
     max_pin: x.x
+  openblas:
+    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
