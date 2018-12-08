@@ -18,20 +18,30 @@ requirements:
   build:
     - {{ compiler('c') }}
   host:
-      - python
-      - setuptools
-      - numpy
-      - cython
-      - gsl
-      - openblas
-      - llvm-openmp >=4.0.1  # [osx]
+    - python
+    - setuptools
+    - numpy
+    - cython
+    - gsl
+    - blas 1.1 openblas    
+    - openblas
+{% if not compiler('c').startswith("toolchain") %}
+    - llvm-openmp  # [osx]
+{% else %}
+    - openmp 4.0.*  # [osx]
+{% endif %}
   run:
-      - python
-      - {{ pin_compatible('numpy') }}
-      - scipy
-      - gsl
-      - openblas
-      - llvm-openmp >=4.0.1  # [osx]
+    - python
+    - {{ pin_compatible('numpy') }}
+    - scipy
+    - gsl
+    - blas 1.1 openblas    
+    - openblas
+{% if not compiler('c').startswith("toolchain") %}
+    - llvm-openmp  # [osx]
+{% else %}
+    - openmp 4.0.*  # [osx]
+{% endif %}
 
 test:
   imports:
