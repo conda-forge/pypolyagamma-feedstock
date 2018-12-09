@@ -1,17 +1,16 @@
 {% set name = "pypolyagamma" %}
-{% set version = "0.2.1" %}
+{% set version = "1.1.6" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/slinderman/pypolyagamma/archive/{{ version }}.tar.gz
-  sha256: 57cbf8e12aafa137940c3a693b873c53037fa80cd5d2a8b1a6709d102e718452
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: da2ab9459a82dfbf2be26bb5cb8a41aed57515bf64b8d981136f96953f6f44cb
 
 build:
-  number: 2
+  number: 0
   skip: True  # [win]
 
 requirements:
@@ -19,29 +18,15 @@ requirements:
     - {{ compiler('c') }}
   host:
     - python
-    - setuptools
+    - pip
     - numpy
     - cython
-    - gsl
-    - blas 1.1 openblas    
-    - openblas
-{% if not compiler('c').startswith("toolchain") %}
     - llvm-openmp  # [osx]
-{% else %}
-    - openmp 4.0.*  # [osx]
-{% endif %}
   run:
     - python
     - {{ pin_compatible('numpy') }}
     - scipy
-    - gsl
-    - blas 1.1 openblas    
-    - openblas
-{% if not compiler('c').startswith("toolchain") %}
     - llvm-openmp  # [osx]
-{% else %}
-    - openmp 4.0.*  # [osx]
-{% endif %}
 
 test:
   imports:
