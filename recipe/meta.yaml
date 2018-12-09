@@ -21,13 +21,13 @@ requirements:
     - python
     - pip
     - numpy
-    - cython <0.29
-    - llvm-openmp  # [osx]
+    - cython <0.28.5
+    # - llvm-openmp  # [osx]
   run:
     - python
     - {{ pin_compatible('numpy') }}
     - scipy
-    - llvm-openmp  # [osx]
+    # - llvm-openmp  # [osx]
 
 test:
   imports:
