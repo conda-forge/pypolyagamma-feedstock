@@ -20,7 +20,7 @@ requirements:
     - python
     - pip
     - numpy
-    - cython <=0.19
+    - cython <=0.28
     - llvm-openmp  # [osx]
   run:
     - python
