@@ -21,13 +21,17 @@ requirements:
     - python
     - pip
     - numpy
-    - cython <0.28.3
-    # - llvm-openmp  # [osx]
+    - cython <0.29
+    {% if not compiler('c').startswith('toolchain') %}
+    - llvm-openmp  # [osx]
+    {% endif %}
   run:
     - python
     - {{ pin_compatible('numpy') }}
     - scipy
-    # - llvm-openmp  # [osx]
+    {% if not compiler('c').startswith('toolchain') %}
+    - llvm-openmp  # [osx]
+    {% endif %}
 
 test:
   imports:
