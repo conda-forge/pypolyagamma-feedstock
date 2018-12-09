@@ -10,7 +10,7 @@ source:
   sha256: da2ab9459a82dfbf2be26bb5cb8a41aed57515bf64b8d981136f96953f6f44cb
 
 build:
-  number: 0
+  number: 1000
   skip: True  # [win]
 
 requirements:
@@ -20,7 +20,7 @@ requirements:
     - python
     - pip
     - numpy
-    - cython
+    - cython <=0.19
     - llvm-openmp  # [osx]
   run:
     - python
