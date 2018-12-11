@@ -3,7 +3,7 @@ About pypolyagamma
 
 Home: https://github.com/slinderman/pypolyagamma
 
-Package license: MIT
+Package license: GPL-3
 
 Feedstock license: BSD 3-Clause
 
