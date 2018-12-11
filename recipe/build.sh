@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export USE_CYTHON=True
+
 CMD="$PYTHON -m pip install . --no-deps -vv "
 
 if [[ `uname` != "Darwin" ]] || [[ "$CC" != "clang" ]]; then
