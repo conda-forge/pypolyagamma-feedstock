@@ -1,46 +1,50 @@
 {% set name = "pypolyagamma" %}
-{% set version = "0.2.1" %}
+{% set version = "1.2.2" %}
 
 package:
-    name: {{ name }}
-    version: {{ version }}
+  name: {{ name }}
+  version: {{ version }}
 
 source:
-    fn: {{ name }}-{{ version }}.tar.gz
-    url: https://github.com/slinderman/pypolyagamma/archive/{{ version }}.tar.gz
-    sha256: 57cbf8e12aafa137940c3a693b873c53037fa80cd5d2a8b1a6709d102e718452
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: afef0244a854754675d2056f6aba09923685983f07ab50357427ae26388d7ac7
 
 build:
-    number: 1
-    skip: True  # [win]
+  number: 1000
+  skip: True  # [win]
 
 requirements:
-    build:
-        - python
-        - setuptools
-        - numpy 1.11.*
-        - cython
-        - gsl
-        - gcc
-        - openblas 0.2.20|0.2.20.*
-    run:
-        - python
-        - numpy >=1.11
-        - scipy
-        - gsl
-        - libgcc
-        - openblas 0.2.20|0.2.20.*
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
+    - python
+    - pip
+    - numpy
+    - cython
+    {% if not compiler('c').startswith('toolchain') %}
+    - llvm-openmp  # [osx]
+    {% endif %}
+  run:
+    - python
+    - {{ pin_compatible('numpy') }}
+    - scipy
+    {% if not compiler('c').startswith('toolchain') %}
+    - llvm-openmp  # [osx]
+    {% endif %}
 
 test:
-    imports:
-        - pypolyagamma
+  imports:
+    - pypolyagamma
 
 about:
-    home: https://github.com/slinderman/pypolyagamma
-    license: MIT
-    summary: A port of Jesse Windles PolyaGamma sampling code using Cython.
+  home: https://github.com/slinderman/pypolyagamma
+  license: GPL-3
+  license_family: GPL
+  license_file: LICENSE
+  summary: A port of Jesse Windles PolyaGamma sampling code using Cython.
 
 extra:
-    recipe-maintainers:
-        - slinderman
-        - mmb90
+  recipe-maintainers:
+    - slinderman
+    - beckermr
