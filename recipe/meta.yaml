@@ -1,5 +1,5 @@
 {% set name = "pypolyagamma" %}
-{% set version = "0.2.1" %}
+{% set version = "1.2.2" %}
 
 package:
     name: {{ name }}
@@ -8,10 +8,10 @@ package:
 source:
     fn: {{ name }}-{{ version }}.tar.gz
     url: https://github.com/slinderman/pypolyagamma/archive/{{ version }}.tar.gz
-    sha256: 57cbf8e12aafa137940c3a693b873c53037fa80cd5d2a8b1a6709d102e718452
+    sha256: 1bcf471d7e1a17842b0d18cc8d1a5a85dfd1a2400a99d5de3dbc05e95ae171cb
 
 build:
-    number: 1
+    number: 0
     skip: True  # [win]
 
 requirements:
