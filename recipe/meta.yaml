@@ -41,6 +41,7 @@ about:
   home: https://github.com/slinderman/pypolyagamma
   license: GPL-3
   license_family: GPL
+  license_file: LICENSE
   summary: A port of Jesse Windles PolyaGamma sampling code using Cython.
 
 extra:
