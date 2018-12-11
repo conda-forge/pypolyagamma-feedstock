@@ -21,6 +21,7 @@ requirements:
     - python
     - pip
     - numpy
+    - cython
     {% if not compiler('c').startswith('toolchain') %}
     - llvm-openmp  # [osx]
     {% endif %}
