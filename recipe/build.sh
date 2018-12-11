@@ -11,4 +11,7 @@ if [[ `uname` != "Darwin" ]] || [[ "$CC" != "clang" ]]; then
     fi
 fi
 
+# remove old cpp files to force full rebuild
+rm -f pypolyagamma/*.cpp
+
 ${CMD}
