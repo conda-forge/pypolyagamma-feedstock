@@ -25,6 +25,7 @@ requirements:
     {% if not compiler('c').startswith('toolchain') %}
     - llvm-openmp  # [osx]
     {% endif %}
+    - gsl  # [linux]
   run:
     - python
     - {{ pin_compatible('numpy') }}
