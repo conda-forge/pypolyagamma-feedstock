@@ -10,12 +10,13 @@ source:
   sha256: c98828ad630586c516a4e69698914d1132682eb39d48822fd804b7163eecee83
 
 build:
-  number: 4
+  number: 5
   skip: True  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - python
@@ -28,7 +29,6 @@ requirements:
     - gsl  # [linux]
   run:
     - python
-    - {{ pin_compatible('numpy') }}
     - scipy
     {% if not compiler('c').startswith('toolchain') %}
     - llvm-openmp  # [osx]
