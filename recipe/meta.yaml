@@ -21,6 +21,7 @@ requirements:
   host:
     - python
     - pip
+    - setuptools
     - numpy
     - cython
     {% if not compiler('c').startswith('toolchain') %}
