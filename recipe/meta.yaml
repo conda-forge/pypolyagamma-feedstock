@@ -10,7 +10,7 @@ source:
   sha256: c98828ad630586c516a4e69698914d1132682eb39d48822fd804b7163eecee83
 
 build:
-  number: 5
+  number: 6
   skip: True  # [win]
 
 requirements:
@@ -23,17 +23,14 @@ requirements:
     - pip
     - numpy
     - cython
-    {% if not compiler('c').startswith('toolchain') %}
     - llvm-openmp  # [osx]
-    {% endif %}
+    - setuptools
     - gsl  # [linux]
   run:
     - python
     - scipy
-    {% if not compiler('c').startswith('toolchain') %}
     - llvm-openmp  # [osx]
-    {% endif %}
-
+    
 test:
   imports:
     - pypolyagamma
