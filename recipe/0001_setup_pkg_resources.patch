@@ -1,0 +1,29 @@
+--- a/setup.py	2026-08-10 12:40:59
++++ b/setup.py	2026-08-10 12:41:22
+@@ -3,7 +3,7 @@
+ from setuptools import setup
+ from setuptools.extension import Extension
+ from setuptools.command.build_ext import build_ext as _build_ext
+-import pkg_resources
++# import pkg_resources
+ 
+ 
+ from glob import glob
+@@ -25,12 +25,14 @@
+         raise Exception("Could not import urlretrieve.")
+ 
+ 
+-# Hold off on locating the numpy include directory 
+-# until we are actually building the extensions, by which 
++# Hold off on locating the numpy include directory
++# until we are actually building the extensions, by which
+ # point numpy should have been installed
+ class build_ext(_build_ext):
+     def build_extensions(self):
+-        numpy_incl = pkg_resources.resource_filename('numpy', 'core/include')
++        import numpy
++
++        numpy_incl = numpy.get_include()
+         for ext in self.extensions:
+             if hasattr(ext, 'include_dirs') and not numpy_incl in ext.include_dirs:
+                 ext.include_dirs.append(numpy_incl)
